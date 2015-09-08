@@ -9,6 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name = "Gcart", schema="TESTDB")
 @NamedQuery(name="Gcart.findAll", query="SELECT g FROM Gcart g")
 public class Gcart implements Serializable {
 	private static final long serialVersionUID = 1L;

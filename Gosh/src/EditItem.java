@@ -99,7 +99,7 @@ public class EditItem extends HttpServlet {
 	}
 
 		request.setAttribute("message", message);
-		getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/output1.jsp").forward(request, response);
 		
 	}
 }

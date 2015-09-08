@@ -8,8 +8,11 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title>Gosh, the E-Lemon-ators</title>
 </head>
+<jsp:include page="header.jsp"/>
 
 <body  style="background-image:url(back.jpg);  background-position:50% -20%; background-repeat:no-repeat;">
+
+
 <div align="center">
 
 <form style="width:40%;" action="addForSale" id="myform">

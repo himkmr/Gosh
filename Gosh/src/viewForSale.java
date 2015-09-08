@@ -38,7 +38,6 @@ public class viewForSale extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().setAttribute("username", "victoria");
 		String username = (String) request.getSession().getAttribute("username");
 		List<Gproduct> list = DBUtil.getProductList(username);
 		String message ="";	
@@ -61,9 +60,9 @@ public class viewForSale extends HttpServlet {
 		}
 		message += "</tbody></table>";
 		message += "</div>";
-		message += "<a href= \"addSale.html\"> Add another Item</a>";
+		message += "<a href= \"addSale.jsp\"> Add another Item</a>";
 		request.setAttribute("message", message);
-		getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/output1.jsp").forward(request, response);
 		
 	}
 

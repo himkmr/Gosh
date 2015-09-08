@@ -48,7 +48,6 @@ public class addForSale extends HttpServlet {
 		String avstring  = (String) request.getParameter("available");
 		String pic = (String) request.getParameter("pic");
 		double scost  = Double.parseDouble(request.getParameter("scost"));
-		request.getSession().setAttribute("username", "victoria");
 		String username = (String)request.getSession().getAttribute("username");
 		System.out.println(pic);
 		System.out.println("Price:"+ price);
@@ -59,7 +58,7 @@ public class addForSale extends HttpServlet {
 				String message = "Not Signed In!";
 				request.setAttribute("message", message);
 				response.setContentType("text/html");
-				request.getServletContext().getRequestDispatcher("/output.jsp")
+				request.getServletContext().getRequestDispatcher("/output1.jsp")
 						.forward(request, response);
 			} else {
 				Gproduct prod = new Gproduct();

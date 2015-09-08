@@ -4,15 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import java.math.BigDecimal;
-
 
 /**
  * The persistent class for the GPRODUCTS database table.
  * 
  */
 @Entity
-@Table(name="GPRODUCTS")
+@Table(name="GPRODUCTS", schema="TESTDB")
 @NamedQuery(name="Gproduct.findAll", query="SELECT g FROM Gproduct g")
 public class Gproduct implements Serializable {
 	private static final long serialVersionUID = 1L;

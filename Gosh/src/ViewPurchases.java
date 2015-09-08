@@ -41,7 +41,6 @@ public class ViewPurchases extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String message = "";
-		request.getSession().setAttribute("username", "victoria");
 		String username =(String) request.getSession().getAttribute("username");
 		try{
 			List<Gcart> cart = DBUtil.getPurchased(username);
@@ -53,14 +52,14 @@ public class ViewPurchases extends HttpServlet {
 				message += "<tr>";
 				message += "<td>"
 						+ prod.getProductname()+"</td><td>"+prod.getPrice()+ "</td>"
-								+ "<td>"+prod.getQuantity()+ "</td><td><a href = \"ReturnItem?pid="+prod.getProductid()+"&quantity="+prod.getQuantity()+"\"><button type=\"button\" class=\"btn btn-info\">Return</button></a>" + "</td>";
+								+ "<td>"+prod.getQuantity()+ "</td><td><a href = \"ReturnItem?id="+prod.getId()+"&quantity="+prod.getQuantity()+"&pid="+prod.getProductid()+"\"><button type=\"button\" class=\"btn btn-info\">Return</button></a>" + "</td>";
 				message += "</td></tr>";
 			}
 			message += "</tbody></table>";
 			message += "</div>";
 			
 			request.setAttribute("message", message);
-			getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/output1.jsp").forward(request, response);
 		}catch (Exception e){
 			e.printStackTrace();
 		} finally {

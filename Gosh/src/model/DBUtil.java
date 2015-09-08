@@ -49,9 +49,10 @@ public class DBUtil {
 		return list;
 	}
 
-	public static Gproduct getProduct(int prodID) {
+	public static Gproduct getProduct(String prodID) {
+		System.out.println(prodID);
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		Gproduct prod = em.find(Gproduct.class, prodID + "");
+		Gproduct prod = em.find(Gproduct.class, prodID);
 		return prod;
 	}
 
@@ -69,6 +70,21 @@ public class DBUtil {
 			em.close();
 		}
 	}
+	public static void update(Gcart item) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+			trans.begin();
+			try {
+				em.merge(item);
+				trans.commit();
+			} catch (Exception e) {
+				System.out.println(e);
+				trans.rollback();
+			} finally {
+				em.close();
+			}
+		}
+	
 
 	public static void delete(Gproduct prod) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
@@ -100,11 +116,20 @@ public class DBUtil {
 			em.close();
 		}
 	}
+
 	
 	public static List<Gcart> getPurchased(String username) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String q = "Select t from Gcart t where t.cusername ='" + username
 				+ "' and t.bought=1";
+		TypedQuery<Gcart> bq = em.createQuery(q, Gcart.class);
+		List<Gcart> list = bq.getResultList();
+		return list;
+	}
+	public static List<Gcart> getPurchasedItem(String username) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String q = "Select t from Gcart t where t.cusername ='" + username
+				+ "' and t.bought=0";
 		TypedQuery<Gcart> bq = em.createQuery(q, Gcart.class);
 		List<Gcart> list = bq.getResultList();
 		return list;

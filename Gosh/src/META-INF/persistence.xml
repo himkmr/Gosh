@@ -5,6 +5,7 @@
 		<class>model.Gcart</class>
 		<class>model.Gproduct</class>
 		<class>model.Guser</class>
+		<class>model.Gpayment</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>

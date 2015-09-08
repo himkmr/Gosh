@@ -36,7 +36,7 @@ public class DeleteProduct extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DBUtil.delete(DBUtil.getProduct(Integer.parseInt(request.getParameter("pid"))));
+		DBUtil.delete(DBUtil.getProduct(request.getParameter("pid")));
 		getServletContext().getRequestDispatcher("/viewForSale").forward(request, response);
 	}
 
