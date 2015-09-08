@@ -20,6 +20,7 @@
 		<img src="http://jay.mobile9.com/download/media/41/dancinglem_d7w9dfop.gif"></img>
 		</center>
 	</div>
+	
 <br><br><br>
 <jsp:include page="footer.jsp"/>
 

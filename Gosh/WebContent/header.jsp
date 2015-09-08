@@ -23,7 +23,7 @@ li {
 
         <li><a href="index.jsp"><img src="elemonator.png" width =172 height = 53></a></li>
         <li><a href="list">Products</a></li>
-     
+       
         <%if(request.getSession().getAttribute("username")==null){%>
         	<li><a href="login.jsp">Login</a></li>
         	<li><a href="CreateAccount.jsp">Create Account</a></li>
@@ -32,9 +32,13 @@ li {
               <li><a href="ViewCartServlet">Cart</a></li>
               <li><a href="ViewPurchases">Purchased Items</a></li>
               <li><a href="logout">Logout</a></li>
+ 
               
         <%} %>
-
+<li style="font-size: 120%;"><form class="form-inline" action="Search">
+		<input type="text" name  ="search">
+		<input type="submit" value="Search">
+		</form></li>
       </ul>
     </div>
   </div>
